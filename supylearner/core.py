@@ -183,11 +183,11 @@ class SuperLearner(BaseEstimator):
             libnames=[est.__class__.__name__ for est in self.library]
         else:
             libnames=self.libnames
-        print "Cross-validated risk estimates for each estimator in the library:"
-        print np.column_stack((libnames, self.risk_cv[:-1]))
-        print "\nCoefficients:"
-        print np.column_stack((libnames,self.coef))
-        print "\n(Not cross-valided) estimated risk for SL:", self.risk_cv[-1]
+        print("Cross-validated risk estimates for each estimator in the library:")
+        print(np.column_stack((libnames, self.risk_cv[:-1])))
+        print("\nCoefficients:")
+        print(np.column_stack((libnames,self.coef)))
+        print("\n(Not cross-valided) estimated risk for SL:", self.risk_cv[-1])
 
         
 
@@ -434,8 +434,8 @@ def cv_superlearner(sl, X, y, K=5):
         libnames=sl.libnames[:]
     libnames.append("SuperLearner")
 
-    print "Cross-validated risk estimates for each estimator in the library and SuperLearner:"
-    print np.column_stack((libnames, risk_cv))
+    print("Cross-validated risk estimates for each estimator in the library and SuperLearner:")
+    print(np.column_stack((libnames, risk_cv)))
     return risk_cv
     
 
