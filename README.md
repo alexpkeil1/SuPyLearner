@@ -35,11 +35,8 @@ sl_inst.summarize()
 
 
 >Cross-validated risk estimates for each estimator in the library:
-
 >[['OLS' '5.889258599506168']
-
 > ['ElasticNet' '6.0149186311686185']
-
 > ['Ridge' '5.8892340442419115']
 
 > ['LARS' '5.869122063410273']
