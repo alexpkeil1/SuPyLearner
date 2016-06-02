@@ -59,7 +59,7 @@ class SuperLearner(BaseEstimator):
     X, y=datasets.make_friedman1(1000)
 
     ols=linear_model.LinearRegression()
-    elnet=linear_model.ElasticNetCV(rho=.1)
+    elnet=linear_model.ElasticNetCV(l1_ratio=.1)
     ridge=linear_model.RidgeCV()
     lars=linear_model.LarsCV()
     lasso=linear_model.LassoCV()
