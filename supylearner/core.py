@@ -375,7 +375,7 @@ def _inv_logit(x):
         
     
 
-def cv_superlearner(sl, X, y, K=5):
+def cv_superlearner(sl, X, y, K=5, pr=True):
     """
     Cross validate the SuperLearner sl as well as all candidates in
     sl.library and print results.
@@ -434,8 +434,9 @@ def cv_superlearner(sl, X, y, K=5):
         libnames=sl.libnames[:]
     libnames.append("SuperLearner")
 
-    print("Cross-validated risk estimates for each estimator in the library and SuperLearner:")
-    print(np.column_stack((libnames, risk_cv)))
+    if pr:
+        print("Cross-validated risk estimates for each estimator in the library and SuperLearner:")
+        print(np.column_stack((libnames, risk_cv)))
     return risk_cv
     
 

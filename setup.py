@@ -2,12 +2,12 @@ from distutils.core import setup
 
 setup(
     name='SuPyLearner',
-    version='0.1.0',
-    author='Sam Lendle',
+    version='0.1.1',
+    author='Sam Lendle, Alex Keil',
     description='Implementation of the SuperLearner algorithm',
-    author_email='lendle@stat.berkeley.edu',
+    author_email='akeil@unc.edu',
     packages=['supylearner'],
-    url='https://github.com/lendle/SuPyLearner',
+    url='https://github.com/alexpkeil1/SuPyLearner',
     license='GPL-3',
     long_description=open('README').read(),
     requires=[
