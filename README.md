@@ -12,6 +12,7 @@ Run the following in terminal
     cd supylearner
     python setup.py install
 
+# typical usage
 Example (from examples/typical_usage.py)
 
 ```python
