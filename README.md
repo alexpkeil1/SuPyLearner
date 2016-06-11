@@ -4,7 +4,13 @@ SuPyLearner
 An implementation of the SuperLearner algorithm in Python based on scikit-learn.
 
 Now updated for Python 3.5
+# Installation
+#### OSX
+Run the following in terminal
 
+    git clone https://github.com/alexpkeil1/supylearner.git
+    cd supylearner
+    python setup.py install
 
 Example (from examples/typical_usage.py)
 
