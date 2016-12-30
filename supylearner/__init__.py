@@ -4,7 +4,7 @@ __all__ = ["SuperLearner", "cv_superlearner"]
 
 
 __title__ = 'SuPyLearner'    
-__version__ = '0.1.1'    
+__version__ = '0.1.2'    
 __build__ = 0x000101    
 __author__ = 'Sam Lendle, Alex Keil'    
 __license__ = 'GPL-3'    

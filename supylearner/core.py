@@ -1,6 +1,7 @@
 from sklearn import clone, metrics
 from sklearn.base import BaseEstimator, RegressorMixin
-import sklearn.cross_validation as cv
+#import sklearn.cross_validation as cv # removed in sklearn 0.20
+import sklearn.model_selection as ms # added for sklearn 0.18
 import numpy as np
 from scipy.optimize import fmin_l_bfgs_b, nnls, fmin_slsqp
 
@@ -107,10 +108,12 @@ class SuperLearner(BaseEstimator):
         """
 
         n=len(y)
-        folds = cv.KFold(n, self.K)
+        #folds = cv.KFold(n, self.K)
+        folds = ms.KFold(self.K)
 
         y_pred_cv = np.empty(shape=(n, self.n_estimators))
-        for train_index, test_index in folds:
+        # for train_index, test_index in folds:
+        for train_index, test_index in folds.split(range(n)):
             X_train, X_test=X[train_index], X[test_index]
             y_train, y_test=y[train_index], y[test_index]
             for aa in range(self.n_estimators):
@@ -405,11 +408,13 @@ def cv_superlearner(sl, X, y, K=5, pr=True):
     library = sl.library[:]
 
     n=len(y)
-    folds=cv.KFold(n, K)
+    #folds=cv.KFold(n, K)
+    folds=ms.KFold(K)
     y_pred_cv = np.empty(shape=(n, len(library)+1))
 
 
-    for train_index, test_index in folds:
+    # for train_index, test_index in folds:
+    for train_index, test_index in folds.split(range(n)):
         X_train, X_test=X[train_index], X[test_index]
         y_train, y_test=y[train_index], y[test_index]
         for aa in range(len(library)):
@@ -423,7 +428,8 @@ def cv_superlearner(sl, X, y, K=5, pr=True):
     for aa in range(len(library)+1):
         #List for risk for each fold for estimator aa
         risks=[]
-        for train_index, test_index in folds:
+        for train_index, test_index in folds.split(range(n)):
+        # for train_index, test_index in folds:
             risks.append(sl._get_risk(y[test_index], y_pred_cv[test_index, aa]))
         #Take mean across volds
         risk_cv[aa]= np.mean(risks)

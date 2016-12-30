@@ -51,26 +51,25 @@ sl_inst2.summarize()
 cvsl_inst2 = sl.cv_superlearner(sl_inst2, d, y, K = 5)
 
 
-# Coefficients:
-# [['OLS' '0.7864245952477199']
-#  ['ElasticNet' '0.15112726322789377']
-#  ['Ridge' '0.0']
-#  ['LASSO' '0.0']
-#  ['kNN' '0.0624481415243863']
-#  ['SVM rbf' '0.0']
-#  ['SVM poly' '0.0']]
-# 
-# (Not cross-valided) estimated risk for SL: 7.98286994809
-
-# Cross-validated risk estimates for each estimator in the library and SuperLearner:
-# [['OLS' '8.055971271872655']
-#  ['ElasticNet' '8.337953500659625']
-#  ['Ridge' '8.077946327523215']
-#  ['LASSO' '8.219156455972461']
-#  ['kNN' '17.296243324196578']
-#  ['SVM rbf' '37.39849752328567']
-#  ['SVM poly' '254.78102911612768']
-#  ['SuperLearner' '8.209745031152488']]
+#  Coefficients:
+#  [['OLS' '0.7864245846152594']
+#   ['ElasticNet' '0.1511272799810129']
+#   ['Ridge' '0.0']
+#   ['LASSO' '0.0']
+#   ['kNN' '0.062448135403727664']
+#   ['SVM rbf' '0.0']
+#   ['SVM poly' '0.0']]
+#  
+#  (Not cross-valided) estimated risk for SL: 7.98286994809
+#  Cross-validated risk estimates for each estimator in the library and SuperLearner:
+#  [['OLS' '8.055971271872655']
+#   ['ElasticNet' '8.337953500659625']
+#   ['Ridge' '8.077946327526314']
+#   ['LASSO' '8.219156455972458']
+#   ['kNN' '17.296243324196585']
+#   ['SVM rbf' '37.39849752328567']
+#   ['SVM poly' '254.7810291161271']
+#   ['SuperLearner' '8.209745064797863']]
 
 
 #ols, knn only
