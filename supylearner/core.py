@@ -310,16 +310,17 @@ class SuperLearner(BaseEstimator):
             pred=est.predict(X)
         if self.loss == 'nloglik':
             if hasattr(est, "predict_proba"):
+                pred=est.predict_proba(X)[:, 1]
                 #There should be a better way to do this
                 #for SVM classifier
-                if est.__class__.__name__ == "SVC":
-                    pred=est.predict_proba(X)[:, 1] # previous version was wrong with 0th column?
-
-                #for logistic regression
-                elif est.__class__.__name__ == "LogisticRegression":
-                    pred=est.predict_proba(X)[:, 1]
-                else:
-                    pred=est.predict_proba(X)
+                #if est.__class__.__name__ == "SVC":
+                #    pred=est.predict_proba(X)[:, 1] # previous version was wrong with 0th column?
+#
+                ##for logistic regression
+                #elif est.__class__.__name__ == "LogisticRegression":
+                #    pred=est.predict_proba(X)[:, 1]
+                #else:
+                #    pred=est.predict_proba(X)
             else:
                 pred=est.predict(X)
                 if pred.min() < 0 or pred.max() > 1:
