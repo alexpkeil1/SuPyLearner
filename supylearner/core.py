@@ -308,7 +308,7 @@ class SuperLearner(BaseEstimator):
         """
         if self.loss == 'L2':
             pred=est.predict(X)
-        if self.loss == 'nloglik':
+        elif self.loss == 'nloglik':
             if hasattr(est, "predict_proba"):
                 pred=est.predict_proba(X)[:, 1]
                 #There should be a better way to do this
@@ -325,6 +325,8 @@ class SuperLearner(BaseEstimator):
                 pred=est.predict(X)
                 if pred.min() < 0 or pred.max() > 1:
                     raise SLError("Probability less than zero or greater than one")
+        else:
+            raise SLError("loss must be 'L2' or 'nloglik'")
         return pred
 
 def _trim(p, bound):
